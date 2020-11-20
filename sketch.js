@@ -27,6 +27,7 @@ var posiongroup;
 var posion;
 var posionimage;
 var START=2;
+var sound;
 var PLAY=1;
 var END=0;
 var gamestate=START;
@@ -48,6 +49,7 @@ greenimage=loadImage("green.png")
 bimage=loadImage("o.jfif")
  dghostimage=loadAnimation("black ghost.png","ghost-standing-1.png");
   posionimage=loadImage("k.png");
+  sound=loadSound("spooky.wav");
 }
 
 function setup() {
@@ -86,11 +88,12 @@ rockgroup=new Group();
   
 }
 function draw() {
-             
+             sound.play();
  background("black");
   if(gamestate===START){
     s.visible=true
     textSize(30);
+    fill("red")
     text("Press SPACE to Jump",250,100);
     text("Press Enter To attack",250,150)
       if(keyWentDown("enter")){
@@ -155,6 +158,7 @@ gamestate=END
 
 }
   if(pgroup.isTouching(greenghostgroup)){
+    sound.stop();
     greenghostgroup.destroyEach();
     greengroup.destroyEach();
     posiongroup.destroyEach();
