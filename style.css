@@ -1,7 +1,14 @@
+
 html, body {
   margin: 0;
   padding: 0;
 }
-canvas {
+
+  
+  canvas {
   display: block;
+  border: 5px solid black;
+  margin-right:auto;
+  margin-left:auto;
+  magin-top: 100px;
 }
